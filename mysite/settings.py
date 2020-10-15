@@ -25,7 +25,7 @@ SECRET_KEY = "r1zdk+(m0v#9ej2iam%cw50s$6ub@fk6^rusa^d&y%m=eb4ms8"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", 'vinimmelo.pythonanywhere.com']
 
 
 # Application definition
