@@ -1,24 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blog do Vini</title>
-</head>
-    <body>
-        <div>
-            <h1><a href="/">Blog Django Girls</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
 
-        <div>
-            <p>publicado: 14.06.2014, 12:14</p>
-            <h2><a href="">Meu primeiro post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+{% block content %}
+    {% for post in posts %}
+        {{ post }}<br/>
+        <div class="post">
+            <p>Publicado: {{ post.published_date }}</p>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr|truncatechars:200 }}</p>
         </div>
-
-        <div>
-            <p>publicado: 14.06.2014, 12:14</p>
-            <h2><a href="">Meu segundo post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
