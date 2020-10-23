@@ -1,7 +1,4 @@
 asgiref==3.2.10
-Django==2.2.16
-parso==0.7.1
-ptyprocess==0.6.0
+Django==3.1.2
 pytz==2020.1
 sqlparse==0.4.1
-wcwidth==0.2.5
