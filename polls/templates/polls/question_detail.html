@@ -12,10 +12,21 @@
     </head>
     <body>
         <h1>{{ question.question_text }}</h1>
-        <ul>
+
+        {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+
+        <form method="post" action="{% url 'polls:vote' question.id %}">
+            {% csrf_token %}
             {% for choice in question.choice_set.all %}
-                <li>{{ choice.choice_text }}</li>
+                <label >
+                    <input type="radio" name="choice" value="{{ choice.id }}"/>
+                    {{ choice.choice_text }}
+                </label> <br/>
             {% endfor %}
-        </ul>
+
+            <input type="submit" value="Vote">
+        </form>
     </body>
 </html>
